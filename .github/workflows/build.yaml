@@ -21,8 +21,6 @@ jobs:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         with:
           args: > 
-            -sonar.projectKey=assertg_assert
-            -sonar.organization=assertg
             -sonar.projectVersion=0.0.1
             -sonar.sources=.
             -sonar.exclusions=**/*_test.go
