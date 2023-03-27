@@ -13,3 +13,11 @@ func ThatIsPositive[C singed](t *testing.T, actual C) {
 	}
 	t.Errorf(`actual: %#v is negative but expected positive`, actual)
 }
+
+func ThatIsNegative[C singed](t *testing.T, actual C) {
+	t.Helper()
+	if actual < 0 {
+		return
+	}
+	t.Errorf(`actual: %#v is positive but expected negative`, actual)
+}
