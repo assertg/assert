@@ -1,5 +1,8 @@
 on: push
 
+permissions:
+  pull-requests: read
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -16,3 +19,14 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        with:
+          args:
+            -sonar.projectKey=assertg_assert
+            -sonar.organization=assertg
+            -sonar.projectVersion=0.0.1
+            -sonar.sources=.
+            -sonar.exclusions=**/*_test.go
+            -sonar.tests=.
+            -sonar.test.inclusions=**/*_test.go
+            -sonar.go.tests.reportPaths=report.json
+            -sonar.go.coverage.reportPaths=coverage.out
