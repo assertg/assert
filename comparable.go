@@ -4,7 +4,7 @@ import (
 	"testing"
 )
 
-func ThatIsEqualTo[C comparable](t *testing.T, actual, expect C) {
+func Equals[C comparable](t *testing.T, actual, expect C) {
 	t.Helper()
 	if actual == expect {
 		return

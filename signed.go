@@ -6,7 +6,7 @@ type singed interface {
 	~int | ~int8 | ~int16 | ~int32 | ~int64 | ~float32 | ~float64
 }
 
-func ThatIsPositive[C singed](t *testing.T, actual C) {
+func Positive[C singed](t *testing.T, actual C) {
 	t.Helper()
 	if actual > 0 {
 		return
@@ -14,7 +14,7 @@ func ThatIsPositive[C singed](t *testing.T, actual C) {
 	t.Errorf(`actual: %#v is negative but expected positive`, actual)
 }
 
-func ThatIsNegative[C singed](t *testing.T, actual C) {
+func Negative[C singed](t *testing.T, actual C) {
 	t.Helper()
 	if actual < 0 {
 		return
